@@ -46,7 +46,6 @@ final readonly class HigherOrderCallables
      */
     public function and(mixed $value): Expectation
     {
-        // @phpstan-ignore-next-line
         return $this->expect($value);
     }
 

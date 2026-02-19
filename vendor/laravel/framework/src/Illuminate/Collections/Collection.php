@@ -730,12 +730,14 @@ class Collection implements ArrayAccess, CanBeEscapedWhenCastToString, Enumerabl
      *
      * @param  (callable(TValue, TKey): bool)|null  $callback
      * @return bool
-     *
-     * @deprecated 12.49.0 Use the `hasSole()` method instead.
      */
     public function containsOneItem(?callable $callback = null): bool
     {
-        return $this->hasSole($callback);
+        if ($callback) {
+            return $this->filter($callback)->count() === 1;
+        }
+
+        return $this->count() === 1;
     }
 
     /**
@@ -1474,26 +1476,6 @@ class Collection implements ArrayAccess, CanBeEscapedWhenCastToString, Enumerabl
         }
 
         return $items->first();
-    }
-
-    /**
-     * Determine if the collection contains a single item, optionally matching the given criteria.
-     *
-     * @param  (callable(TValue, TKey): bool)|string|null  $key
-     * @param  mixed  $operator
-     * @param  mixed  $value
-     * @return bool
-     */
-    public function hasSole($key = null, $operator = null, $value = null): bool
-    {
-        $filter = func_num_args() > 1
-            ? $this->operatorForWhere(...func_get_args())
-            : $key;
-
-        return $this
-            ->unless($filter == null)
-            ->filter($filter)
-            ->count() === 1;
     }
 
     /**

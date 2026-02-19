@@ -38,7 +38,7 @@ final readonly class CoversNamespace extends Metadata
     }
 
     /**
-     * @return non-empty-string
+     * @return class-string
      */
     public function namespace(): string
     {

@@ -68,7 +68,7 @@ EOT,
         }
 
 EOT,
-                    $property->setterType()->asString(),
+                    $property->type()->asString(),
                     $className,
                     $property->name(),
                 );

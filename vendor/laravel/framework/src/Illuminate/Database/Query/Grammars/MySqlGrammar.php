@@ -110,12 +110,8 @@ class MySqlGrammar extends Grammar
     {
         $index = $indexHint->index;
 
-        $indexes = array_map('trim', explode(',', $index));
-
-        foreach ($indexes as $i) {
-            if (! preg_match('/^[a-zA-Z0-9_$]+$/', $i)) {
-                throw new InvalidArgumentException('Index name contains invalid characters.');
-            }
+        if (! preg_match('/^[a-zA-Z0-9_$]+$/', $index)) {
+            throw new InvalidArgumentException('Index name contains invalid characters.');
         }
 
         return match ($indexHint->type) {

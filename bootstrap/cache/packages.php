@@ -1,11 +1,4 @@
 <?php return array (
-  'inertiajs/inertia-laravel' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Inertia\\ServiceProvider',
-    ),
-  ),
   'laravel/fortify' => 
   array (
     'providers' => 
@@ -48,11 +41,15 @@
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
     ),
   ),
-  'laravel/wayfinder' => 
+  'livewire/livewire' => 
   array (
+    'aliases' => 
+    array (
+      'Livewire' => 'Livewire\\Livewire',
+    ),
     'providers' => 
     array (
-      0 => 'Laravel\\Wayfinder\\WayfinderServiceProvider',
+      0 => 'Livewire\\LivewireServiceProvider',
     ),
   ),
   'nesbot/carbon' => 
@@ -81,13 +78,6 @@
     'providers' => 
     array (
       0 => 'Pest\\Laravel\\PestServiceProvider',
-    ),
-  ),
-  'tightenco/ziggy' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Tighten\\Ziggy\\ZiggyServiceProvider',
     ),
   ),
 );

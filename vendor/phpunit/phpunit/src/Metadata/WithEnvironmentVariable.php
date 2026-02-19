@@ -25,7 +25,7 @@ final readonly class WithEnvironmentVariable extends Metadata
     /**
      * @param non-empty-string $environmentVariableName
      */
-    protected function __construct(int $level, string $environmentVariableName, null|string $value)
+    public function __construct(int $level, string $environmentVariableName, null|string $value)
     {
         parent::__construct($level);
 

@@ -109,13 +109,13 @@ class Str
             return $subject;
         }
 
-        $position = mb_strrpos($subject, $search);
+        $position = strrpos($subject, (string) $search);
 
         if ($position === false) {
             return $subject;
         }
 
-        return static::substr($subject, $position + static::length($search));
+        return substr($subject, $position + strlen($search));
     }
 
     /**

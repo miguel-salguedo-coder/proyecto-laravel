@@ -12,12 +12,19 @@ use Illuminate\Support\Arr;
 class MissingScopeException extends AuthorizationException
 {
     /**
+     * The scopes that the user did not have.
+     *
+     * @var array
+     */
+    protected $scopes;
+
+    /**
      * Create a new missing scope exception.
      *
-     * @param  array|string  $scopes  The scopes that the user did not have.
+     * @param  array|string  $scopes
      * @param  string  $message
      */
-    public function __construct(protected $scopes = [], $message = 'Invalid scope(s) provided.')
+    public function __construct($scopes = [], $message = 'Invalid scope(s) provided.')
     {
         parent::__construct($message);
 

@@ -686,14 +686,11 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
     /**
      * Determine if the collection contains a single item.
      *
-     * @param  (callable(TValue, TKey): bool)|null  $callback
      * @return bool
-     *
-     * @deprecated 12.49.0 Use the `hasSole()` method instead.
      */
-    public function containsOneItem(?callable $callback = null): bool
+    public function containsOneItem()
     {
-        return $this->hasSole($callback);
+        return $this->take(2)->count() === 1;
     }
 
     /**
@@ -1335,27 +1332,6 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
             ->take(2)
             ->collect()
             ->sole();
-    }
-
-    /**
-     * Determine if the collection contains a single item or a single item matching the given criteria.
-     *
-     * @param  (callable(TValue, TKey): bool)|string|null  $key
-     * @param  mixed  $operator
-     * @param  mixed  $value
-     * @return bool
-     */
-    public function hasSole($key = null, $operator = null, $value = null): bool
-    {
-        $filter = func_num_args() > 1
-            ? $this->operatorForWhere(...func_get_args())
-            : $key;
-
-        return $this
-            ->unless($filter == null)
-            ->filter($filter)
-            ->take(2)
-            ->count() === 1;
     }
 
     /**

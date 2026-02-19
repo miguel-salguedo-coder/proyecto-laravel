@@ -14,12 +14,20 @@ use Symfony\Component\HttpFoundation\Response;
 class AuthenticateSession
 {
     /**
+     * The authentication factory implementation.
+     *
+     * @var \Illuminate\Contracts\Auth\Factory
+     */
+    protected $auth;
+
+    /**
      * Create a new middleware instance.
      *
-     * @param  \Illuminate\Contracts\Auth\Factory  $auth  The authentication factory implementation.
+     * @param  \Illuminate\Contracts\Auth\Factory  $auth
      */
-    public function __construct(protected AuthFactory $auth)
+    public function __construct(AuthFactory $auth)
     {
+        $this->auth = $auth;
     }
 
     /**
