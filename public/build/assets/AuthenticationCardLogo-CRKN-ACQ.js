@@ -1,0 +1,1 @@
+import{c as e,w as a,a as r,e as s,l as o,o as n}from"./app-ikudHd6l.js";const _={__name:"AuthenticationCardLogo",setup(i){return(c,t)=>(n(),e(s(o),{href:"/"},{default:a(()=>[...t[0]||(t[0]=[r("div",{class:"text-3xl font-light tracking-widest text-gray-900"}," MS ",-1)])]),_:1}))}};export{_};
